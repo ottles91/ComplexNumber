@@ -61,4 +61,18 @@
         double val2 = Math.Abs(Math.Sqrt(two.Real * two.Real + two.Imaginary * two.Imaginary));
         return val1 > val2;
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is ComplexNumber other)
+        {
+            return this.Real == other.Real && this.Imaginary == other.Imaginary;
+        }
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Real, Imaginary);
+    }
 }
