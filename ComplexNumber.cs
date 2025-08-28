@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-public class ComplexNumber
+﻿public class ComplexNumber
 {
     public int Real { get; set; }
     public int Imaginary { get; set; }
@@ -15,7 +9,7 @@ public class ComplexNumber
         Imaginary = imaginary;
     }
 
-    //this is operator overloading, for the + operator
+    // Override the + operator
     public static ComplexNumber operator +(ComplexNumber one, ComplexNumber two)
     {
         ComplexNumber answer = new ComplexNumber(0, 0);
@@ -25,6 +19,7 @@ public class ComplexNumber
         return answer;
     }
 
+    // Override the - operator
     public static ComplexNumber operator -(ComplexNumber one, ComplexNumber two)
     {
         ComplexNumber answer = new ComplexNumber(0, 0);
@@ -34,11 +29,13 @@ public class ComplexNumber
         return answer;
     }
 
+    // Override the == operator
     public static bool operator ==(ComplexNumber one, ComplexNumber two)
     {
         return (one.Real == two.Real && one.Imaginary == two.Imaginary);
     }
 
+    // Override the != operator
     public static bool operator !=(ComplexNumber one, ComplexNumber two)
     {
         return !(one.Real == two.Real && one.Imaginary == two.Imaginary);
@@ -49,6 +46,7 @@ public class ComplexNumber
         return $"{Real} + {Imaginary}i";
     }
 
+    // Override the < operator
     public static bool operator <(ComplexNumber one, ComplexNumber two)
     {
         double val1 = Math.Abs(Math.Sqrt(one.Real * one.Real + one.Imaginary * one.Imaginary));
@@ -56,6 +54,7 @@ public class ComplexNumber
         return val1 < val2;
     }
 
+    // Override the > operator
     public static bool operator >(ComplexNumber one, ComplexNumber two)
     {
         double val1 = Math.Abs(Math.Sqrt(one.Real * one.Real + one.Imaginary * one.Imaginary));
